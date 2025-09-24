@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# PowerShell
+*.ps1.log
+*.ps1.xml
+
+# Rapports générés (optionnel - décommentez si vous ne voulez pas les versionner)
+# Rapport_Delegations_Formate.txt
+# Delegations_Possedees_Report.csv
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*~
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*.backup
