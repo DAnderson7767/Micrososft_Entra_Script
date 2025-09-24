@@ -61,14 +61,26 @@ pwsh ./script/ajouter_delegation.ps1
 
 ## 🔧 Configuration
 
-Les scripts sont configurés pour rechercher les délégations des utilisateurs suivants :
-- sophie.runtz@lde.fr
-- celine.risch@lde.fr
-- sarah.merah@lde.fr
-- maxime.klein@lde.fr
-- monia.belebbed@lde.fr
-- elodie.urban@lde.fr
-- elisabeth.laux@lde.fr
+**IMPORTANT :** Avant d'utiliser les scripts, modifiez la configuration dans les fichiers :
+
+### Dans `script/rapport_delegations_complet.ps1` :
+```powershell
+# Liste des utilisateurs dont on cherche les délégations
+$TargetUsers = @(
+    "utilisateur1@votre-domaine.com",
+    "utilisateur2@votre-domaine.com",
+    "utilisateur3@votre-domaine.com"
+)
+
+# Configuration des services
+$Services = @{
+    "Votre Service" = @{
+        "Responsable" = "Nom du Responsable"
+        "Email" = "responsable@votre-domaine.com"
+        "Utilisateurs" = @("utilisateur1@votre-domaine.com")
+    }
+}
+```
 
 ## 📊 Types de délégations
 
@@ -86,13 +98,13 @@ Les scripts sont configurés pour rechercher les délégations des utilisateurs 
 ## 📝 Exemple de rapport
 
 ```markdown
-## Numérique
+## Votre Service
 
-Template de base: **Céline Risch**
+Template de base: **Nom du Responsable**
 
-- [numerique@lde.fr](mailto:numerique@lde.fr)
-- [support@lde.fr](mailto:support@lde.fr) (Support)
-- [archives.techniques@lde.fr](mailto:archives.techniques@lde.fr) (Archives techniques)
+- [boite1@votre-domaine.com](mailto:boite1@votre-domaine.com)
+- [boite2@votre-domaine.com](mailto:boite2@votre-domaine.com) (Nom d'affichage)
+- [boite3@votre-domaine.com](mailto:boite3@votre-domaine.com) (Autre boîte)
 ```
 
 ## 🤝 Contribution

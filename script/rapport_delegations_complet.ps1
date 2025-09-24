@@ -31,14 +31,11 @@ Write-Host "Connexion à Exchange Online..." -ForegroundColor Green
 Connect-ExchangeOnline
 
 # Liste des utilisateurs dont on cherche les délégations
+# MODIFIEZ CETTE LISTE SELON VOS BESOINS
 $TargetUsers = @(
-    "sophie.runtz@lde.fr",
-    "celine.risch@lde.fr",
-    "sarah.merah@lde.fr",
-    "maxime.klein@lde.fr",
-    "monia.belebbed@lde.fr",
-    "elodie.urban@lde.fr",
-    "elisabeth.laux@lde.fr"
+    "utilisateur1@votre-domaine.com",
+    "utilisateur2@votre-domaine.com",
+    "utilisateur3@votre-domaine.com"
 )
 
 Write-Host "`nRecherche des délégations possedees par $($TargetUsers.Count) utilisateurs..." -ForegroundColor Green
@@ -119,31 +116,17 @@ Write-Progress -Activity "Analyse des delegations" -Completed
 Write-Host "`nGeneration du rapport formate..." -ForegroundColor Cyan
 
 # Définir les services et leurs responsables principaux
+# MODIFIEZ CETTE CONFIGURATION SELON VOTRE ORGANISATION
 $Services = @{
-    "Numérique" = @{
-        "Responsable" = "Céline Risch"
-        "Email" = "celine.risch@lde.fr"
-        "Utilisateurs" = @("celine.risch@lde.fr", "elodie.urban@lde.fr")
+    "Service 1" = @{
+        "Responsable" = "Responsable Service 1"
+        "Email" = "responsable1@votre-domaine.com"
+        "Utilisateurs" = @("utilisateur1@votre-domaine.com", "utilisateur2@votre-domaine.com")
     }
-    "Marketing & Communication" = @{
-        "Responsable" = "Sarah Merah"
-        "Email" = "sarah.merah@lde.fr" 
-        "Utilisateurs" = @("sarah.merah@lde.fr", "maxime.klein@lde.fr")
-    }
-    "Comptabilité & RH" = @{
-        "Responsable" = "Monia Belebbed"
-        "Email" = "monia.belebbed@lde.fr"
-        "Utilisateurs" = @("monia.belebbed@lde.fr", "Elisabeth.laux@lde.fr")
-    }
-    "Commercial & Export" = @{
-        "Responsable" = "Sophie Runtz"
-        "Email" = "sophie.runtz@lde.fr"
-        "Utilisateurs" = @("sophie.runtz@lde.fr")
-    }
-    "PopLab" = @{
-        "Responsable" = "Maxime Klein"
-        "Email" = "maxime.klein@lde.fr"
-        "Utilisateurs" = @("maxime.klein@lde.fr")
+    "Service 2" = @{
+        "Responsable" = "Responsable Service 2"
+        "Email" = "responsable2@votre-domaine.com" 
+        "Utilisateurs" = @("utilisateur3@votre-domaine.com")
     }
 }
 

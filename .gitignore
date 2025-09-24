@@ -11,9 +11,19 @@ Thumbs.db
 *.ps1.log
 *.ps1.xml
 
-# Rapports générés (optionnel - décommentez si vous ne voulez pas les versionner)
-# Rapport_Delegations_Formate.txt
-# Delegations_Possedees_Report.csv
+# Rapports générés et fichiers sensibles
+Rapport_Delegations_Formate.txt
+Delegations_Possedees_Report.csv
+*.csv
+*_Report.txt
+*_Formate.txt
+
+# Fichiers de configuration sensibles
+config.json
+credentials.json
+*.key
+*.pem
+*.p12
 
 # Fichiers temporaires
 *.tmp
