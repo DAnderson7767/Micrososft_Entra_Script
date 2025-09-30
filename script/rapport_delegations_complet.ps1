@@ -30,13 +30,89 @@ Import-Module ExchangeOnlineManagement
 Write-Host "Connexion à Exchange Online..." -ForegroundColor Green
 Connect-ExchangeOnline
 
-# Liste des utilisateurs dont on cherche les délégations
-# MODIFIEZ CETTE LISTE SELON VOS BESOINS
-$TargetUsers = @(
-    "utilisateur1@votre-domaine.com",
-    "utilisateur2@votre-domaine.com",
-    "utilisateur3@votre-domaine.com"
-)
+# Interface en ligne de commande pour saisir les utilisateurs cibles (compatible macOS)
+function Get-UserEmails {
+    Write-Host "`n=== CONFIGURATION DES UTILISATEURS CIBLES ===" -ForegroundColor Yellow
+    Write-Host "Saisissez les adresses email des utilisateurs dont vous voulez analyser les délégations." -ForegroundColor Cyan
+    Write-Host "Une adresse par ligne. Tapez 'FIN' sur une ligne vide pour terminer." -ForegroundColor Cyan
+    Write-Host ""
+    
+    # Liste par défaut
+    $defaultUsers = @(
+        "celine.rish@lde.fr",
+        "tom.wolff@lde.fr", 
+        "tony.aussel@lde.fr",
+        "stephanie.tiratel@lde.fr",
+        "sarah.merah@lde.fr",
+        "sophie.runtz@lde.fr",
+        "monia.belebbed@lde.fr",
+        "marine.bernauer@lde.fr",
+        "david.weil@lde.fr"
+    )
+    
+    Write-Host "Liste actuelle des utilisateurs :" -ForegroundColor Green
+    for ($i = 0; $i -lt $defaultUsers.Count; $i++) {
+        Write-Host "  [$($i+1)] $($defaultUsers[$i])" -ForegroundColor White
+    }
+    
+    Write-Host ""
+    Write-Host "Options :" -ForegroundColor Yellow
+    Write-Host "  [1] Utiliser la liste actuelle" -ForegroundColor White
+    Write-Host "  [2] Modifier la liste" -ForegroundColor White
+    Write-Host "  [3] Annuler" -ForegroundColor White
+    
+    do {
+        $choice = Read-Host "Votre choix (1-3)"
+    } while ($choice -notin @("1", "2", "3"))
+    
+    switch ($choice) {
+        "1" {
+            return $defaultUsers
+        }
+        "2" {
+            Write-Host "`nSaisie des nouveaux utilisateurs :" -ForegroundColor Green
+            Write-Host "Tapez les adresses email (une par ligne), puis 'FIN' pour terminer :" -ForegroundColor Cyan
+            
+            $emails = @()
+            $lineNumber = 1
+            
+            do {
+                $input = Read-Host "Email $lineNumber"
+                if ($input -ne "FIN" -and $input.Trim() -ne "") {
+                    $emails += $input.Trim()
+                    $lineNumber++
+                }
+            } while ($input -ne "FIN")
+            
+            # Validation des emails
+            $validEmails = @()
+            foreach ($email in $emails) {
+                if ($email -match "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") {
+                    $validEmails += $email
+                } else {
+                    Write-Warning "Email invalide ignoré : $email"
+                }
+            }
+            
+            if ($validEmails.Count -eq 0) {
+                Write-Error "Aucun email valide saisi. Utilisation de la liste par défaut."
+                return $defaultUsers
+            }
+            
+            return $validEmails
+        }
+        "3" {
+            Write-Host "Opération annulée par l'utilisateur." -ForegroundColor Yellow
+            exit 0
+        }
+    }
+}
+
+# Récupérer les utilisateurs
+$TargetUsers = Get-UserEmails
+
+Write-Host "`nUtilisateurs configurés : $($TargetUsers.Count)" -ForegroundColor Green
+$TargetUsers | ForEach-Object { Write-Host "  - $_" -ForegroundColor Cyan }
 
 Write-Host "`nRecherche des délégations possedees par $($TargetUsers.Count) utilisateurs..." -ForegroundColor Green
 Write-Host "ATTENTION: Cette operation peut prendre plusieurs minutes selon la taille de votre organisation." -ForegroundColor Yellow
@@ -115,112 +191,56 @@ Write-Progress -Activity "Analyse des delegations" -Completed
 
 Write-Host "`nGeneration du rapport formate..." -ForegroundColor Cyan
 
-# Définir les services et leurs responsables principaux
-# MODIFIEZ CETTE CONFIGURATION SELON VOTRE ORGANISATION
-$Services = @{
-    "Service 1" = @{
-        "Responsable" = "Responsable Service 1"
-        "Email" = "responsable1@votre-domaine.com"
-        "Utilisateurs" = @("utilisateur1@votre-domaine.com", "utilisateur2@votre-domaine.com")
-    }
-    "Service 2" = @{
-        "Responsable" = "Responsable Service 2"
-        "Email" = "responsable2@votre-domaine.com" 
-        "Utilisateurs" = @("utilisateur3@votre-domaine.com")
-    }
-}
-
-# Fonction pour formater une adresse email avec son nom d'affichage
-function Format-EmailEntry {
-    param($Email, $DisplayName)
-    
-    if ($DisplayName -and $DisplayName -ne $Email -and $DisplayName -ne "") {
-        return "- [$Email](mailto:$Email) ($DisplayName)"
-    } else {
-        return "- [$Email](mailto:$Email)"
-    }
-}
-
 # Initialiser le contenu du rapport
 $ReportContent = @()
-$ReportContent += "# Rapport des Délégations par Service"
+$ReportContent += "# Rapport des Délégations par Collaborateur"
 $ReportContent += ""
 $ReportContent += "Généré le : $(Get-Date -Format 'dd/MM/yyyy à HH:mm')"
 $ReportContent += ""
 
-# Traiter chaque service
-foreach ($ServiceName in $Services.Keys) {
-    $Service = $Services[$ServiceName]
-    $ServiceUsers = $Service.Utilisateurs
-    
-    # Récupérer toutes les délégations pour les utilisateurs de ce service
-    $ServiceDelegations = @()
-    
-    foreach ($Delegation in $Results) {
-        $HasAccess = $false
-        
-        # Vérifier si un utilisateur du service a accès (comparaison insensible à la casse)
-        foreach ($User in $ServiceUsers) {
-            if ($Delegation.FullAccess.ToLower() -like "*$($User.ToLower())*" -or 
-                $Delegation.SendAs.ToLower() -like "*$($User.ToLower())*" -or 
-                $Delegation.SendOnBehalf.ToLower() -like "*$($User.ToLower())*") {
-                $HasAccess = $true
-                break
-            }
-        }
-        
-        if ($HasAccess) {
-            $ServiceDelegations += $Delegation
-        }
-    }
-    
-    # Générer la section du service si des délégations existent
-    if ($ServiceDelegations.Count -gt 0) {
-        $ReportContent += "## $ServiceName"
-        $ReportContent += ""
-        $ReportContent += "Template de base: **$($Service.Responsable)**"
-        $ReportContent += ""
-        
-        # Trier les délégations par ordre alphabétique
-        $SortedDelegations = $ServiceDelegations | Sort-Object BoiteAuxLettres
-        
-        foreach ($Delegation in $SortedDelegations) {
-            $FormattedEntry = Format-EmailEntry -Email $Delegation.BoiteAuxLettres -DisplayName $Delegation.NomAffichage
-            $ReportContent += $FormattedEntry
-        }
-        
-        $ReportContent += ""
-        $ReportContent += "---"
-        $ReportContent += ""
-    }
-}
+# Créer un dictionnaire pour organiser les délégations par utilisateur
+$UserDelegations = @{}
 
-# Ajouter une section avec toutes les délégations non catégorisées (au cas où)
-$AllCategorizedEmails = @()
-foreach ($Service in $Services.Values) {
-    foreach ($Delegation in $Results) {
-        foreach ($User in $Service.Utilisateurs) {
-            if ($Delegation.FullAccess.ToLower() -like "*$($User.ToLower())*" -or 
-                $Delegation.SendAs.ToLower() -like "*$($User.ToLower())*" -or 
-                $Delegation.SendOnBehalf.ToLower() -like "*$($User.ToLower())*") {
-                $AllCategorizedEmails += $Delegation.BoiteAuxLettres
+# Parcourir tous les résultats pour organiser par utilisateur
+foreach ($Delegation in $Results) {
+    # Extraire tous les utilisateurs qui ont des délégations sur cette boîte
+    $UsersWithAccess = @()
+    
+    # Ajouter les utilisateurs avec accès complet
+    if ($Delegation.FullAccess) {
+        $UsersWithAccess += $Delegation.FullAccess -split ", " | ForEach-Object { $_.Trim() }
+    }
+    
+    # Ajouter les utilisateurs avec Send As
+    if ($Delegation.SendAs) {
+        $UsersWithAccess += $Delegation.SendAs -split ", " | ForEach-Object { $_.Trim() }
+    }
+    
+    # Ajouter les utilisateurs avec Send On Behalf
+    if ($Delegation.SendOnBehalf) {
+        $UsersWithAccess += $Delegation.SendOnBehalf -split ", " | ForEach-Object { $_.Trim() }
+    }
+    
+    # Organiser par utilisateur
+    foreach ($User in $UsersWithAccess) {
+        if ($User -and $User.Trim() -ne "") {
+            if (-not $UserDelegations.ContainsKey($User)) {
+                $UserDelegations[$User] = @()
             }
+            $UserDelegations[$User] += $Delegation
         }
     }
 }
 
-$UncategorizedDelegations = $Results | Where-Object { $_.BoiteAuxLettres -notin $AllCategorizedEmails }
-
-if ($UncategorizedDelegations.Count -gt 0) {
-    $ReportContent += "## Autres Délégations"
-    $ReportContent += ""
-    $ReportContent += "Délégations non catégorisées :"
-    $ReportContent += ""
+# Générer le rapport par utilisateur
+foreach ($User in ($UserDelegations.Keys | Sort-Object)) {
+    $UserDelegations[$User] = $UserDelegations[$User] | Sort-Object BoiteAuxLettres | Get-Unique -AsString
     
-    foreach ($Delegation in ($UncategorizedDelegations | Sort-Object BoiteAuxLettres)) {
-        $FormattedEntry = Format-EmailEntry -Email $Delegation.BoiteAuxLettres -DisplayName $Delegation.NomAffichage
-        $ReportContent += $FormattedEntry
+    $ReportContent += "$User :"
+    foreach ($Delegation in $UserDelegations[$User]) {
+        $ReportContent += $Delegation.BoiteAuxLettres
     }
+    $ReportContent += ""
 }
 
 # Chemins des fichiers de sortie
