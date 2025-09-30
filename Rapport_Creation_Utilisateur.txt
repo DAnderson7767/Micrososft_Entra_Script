@@ -1,0 +1,86 @@
+# Rapport de Création d'Utilisateur
+
+Généré le : 30/09/2025 à 15:44
+
+=== INFORMATIONS UTILISATEUR ===
+Prénom : David
+Nom : API
+Adresse email : david.api@lde.fr
+Domaine : lde.fr
+Département : Numérique
+Poste : 
+
+=== CRÉATION RÉUSSIE ===
+ID utilisateur : f9ce98e5-819c-43d2-a49d-5cd0bc1f6c3d
+Date de création : 30/09/2025 à 15:44
+
+=== DÉLÉGATIONS CONFIGURÉES ===
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- Microsoft.Exchange.Management.RecipientTasks.MailboxAcePresentationObject
+- Microsoft.Exchange.Data.Directory.Permission.RecipientPermission
+- FullAccess sur aide@poplab.education
+- SendAs sur aide@poplab.education
+- FullAccess sur aura@lde.fr
+- SendAs sur aura@lde.fr
+- FullAccess sur bonjour@poplab.education
+- SendAs sur bonjour@poplab.education
+- FullAccess sur commandes_numeriques@lde.fr
+- SendAs sur commandes_numeriques@lde.fr
+- FullAccess sur contact@poplab.education
+- SendAs sur contact@poplab.education
+- FullAccess sur evenements@lde.fr
+- SendAs sur evenements@lde.fr
+- FullAccess sur fablab@lde.fr
+- SendAs sur fablab@lde.fr
+- FullAccess sur grandest@lde.fr
+- SendAs sur grandest@lde.fr
+- FullAccess sur ile-de-france@lde.fr
+- SendAs sur ile-de-france@lde.fr
+- FullAccess sur lareunion@lde.fr
+- SendAs sur lareunion@lde.fr
+- FullAccess sur lucie@poplab.education
+- SendAs sur lucie@poplab.education
+- FullAccess sur notifications@poplab.education
+- SendAs sur notifications@poplab.education
+- FullAccess sur num_rc_gpt@lde.fr
+- SendAs sur num_rc_gpt@lde.fr
+- FullAccess sur numerique@lde.fr
+- SendAs sur numerique@lde.fr
+- FullAccess sur occitanie@lde.fr
+- SendAs sur occitanie@lde.fr
+- FullAccess sur signalementCatalogue@lde.fr
+- SendAs sur signalementCatalogue@lde.fr
+- FullAccess sur support@lde.fr
+- SendAs sur support@lde.fr
+

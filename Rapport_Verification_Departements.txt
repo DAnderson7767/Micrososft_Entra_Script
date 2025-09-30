@@ -1,0 +1,197 @@
+# Rapport de Vérification des Départements
+
+Généré le : 30/09/2025 à 15:25
+
+=== TOUS LES DÉPARTEMENTS (POUR CORRECTION) ===
+
+19 département(s) unique(s) trouvé(s) :
+
+Département: 'Chef de projet' (4 utilisateur(s))
+   Utilisateurs :
+     - Merdi.MUINTSHE-MUKORE@lde.fr
+     - eric.bosshardt@lde.fr
+     - tony.aussel@lde.fr
+     - solann.puygrenier@lde.fr
+
+Département: 'Chefferie de Projet' (3 utilisateur(s))
+   ATTENTION: SERA NORMALISÉ VERS: 'Chef de Projet'
+   Utilisateurs :
+     - rayane.benzamouche@lde.fr
+     - nada.mouhri@lde.fr
+     - Aude.hermann-kromberger@lde.fr
+
+Département: 'Commerce' (15 utilisateur(s))
+   Utilisateurs :
+     - sarah.merah@lde.fr
+     - lucie.abdullah@lde.fr
+     - alexandra.Federici@lde.fr
+     - flore.belgy@lde.fr
+     - stephanie.tiratel@lde.fr
+     - nathalie.bourgeois@lde.fr
+     - alexandre.erhard@lde.fr
+     - sabina.ribeiro@lde.fr
+     - olivier.simon@lde.fr
+     - christophe.beauget@lde.fr
+     - Tom.Wolff@lde.fr
+     - Mounir.Labdai@lde.fr
+     - remy.Hufschmitt@lde.fr
+     - Benoit.Dufour@lde.fr
+     - manon.schweitzer-ulrich@lde.fr
+
+Département: 'Commercial et Marketing' (1 utilisateur(s))
+   Utilisateurs :
+     - Eva.Goettelmann@lde.fr
+
+Département: 'Comptabilité' (4 utilisateur(s))
+   Utilisateurs :
+     - daniel@lde.fr
+     - Noe.Mura@lde.fr
+     - monia.belebbed@lde.fr
+     - nathan.meyer@lde.fr
+
+Département: 'Développement informatique' (23 utilisateur(s))
+   Utilisateurs :
+     - nicolas.tschaenn@lde.fr
+     - cyril.heckmann@lde.fr
+     - Aurelien.Erard@lde.fr
+     - david.enrique@lde.fr
+     - muriel.beasse@lde.fr
+     - arthur.neyer@lde.fr
+     - lelio.mercy@lde.fr
+     - Yohanan.hirsch@lde.fr
+     - frederic.hoffmeyer@lde.fr
+     - samy.shbib@lde.fr
+     - Nicolas.Reinbold@lde.fr
+     - jean-michel.rasser@lde.fr
+     - Simon.Kammenthaler@lde.fr
+     - Francois.Koehler@lde.fr
+     - jamaa.saranbat@lde.fr
+     - phillip.owusu@lde.fr
+     - remy.silvestro@lde.fr
+     - generique@lde.fr
+     - dimitri.toupense@lde.fr
+     - flavien.marck@lde.fr
+     - nathan.michelon@lde.fr
+     - julien.bierme@lde.fr
+     - damien.heinrich@lde.fr
+
+Département: 'Direction' (8 utilisateur(s))
+   Utilisateurs :
+     - frederic@lde.fr
+     - pierre-alban@lde.fr
+     - marc.hoff@lde.fr
+     - alexandre.hummel@lde.fr
+     - delphine.danet@lde.fr
+     - christophe.wennhack@lde.fr
+     - audrey.schandene@lde.fr
+     - clark.saleforce@lde.fr
+
+Département: 'Export' (11 utilisateur(s))
+   Utilisateurs :
+     - sophie.runtz@lde.fr
+     - olivier.samper@lde.fr
+     - Emmanuel.gable@lde.fr
+     - vianney.gruget@lde.fr
+     - luce.aquatias@lde.fr
+     - karine.metivier@lde.fr
+     - lea.lefeuvre@lde.fr
+     - lauriane.borowiak@lde.fr
+     - Emma.Delorme@lde.fr
+     - alexandra.sidelnyk@lde.fr
+     - Elodie.argire@lde.fr
+
+Département: 'Flora.Brouard@lde.fr' (1 utilisateur(s))
+   ERREUR: EMAIL DANS LE CHAMP DÉPARTEMENT
+   Utilisateurs :
+     - Flora.Brouard@lde.fr
+
+Département: 'Informatique' (4 utilisateur(s))
+   Utilisateurs :
+     - dylan.lagger@lde.fr
+     - herve@lde.fr
+     - David.Chiche@lde.fr
+     - enzo.storck@lde.fr
+
+Département: 'LDE' (1 utilisateur(s))
+   Utilisateurs :
+     - achats@lde.fr
+
+Département: 'Marketing' (10 utilisateur(s))
+   Utilisateurs :
+     - tony.nguyen@lde.fr
+     - maxime.klein@lde.fr
+     - Louisiana.Ruppert@lde.fr
+     - vivien.haumesser@lde.fr
+     - jeremie.rolling@lde.fr
+     - pauline.parnin@lde.fr
+     - Lucas.lemasson@lde.fr
+     - alexandre.klingler@lde.fr
+     - Solene.jehl@lde.fr
+     - leane.weber@lde.fr
+
+Département: 'Numérique' (12 utilisateur(s))
+   Utilisateurs :
+     - serge.cornand@lde.fr
+     - david.weil@lde.fr
+     - jennifer.orluk@lde.fr
+     - anne-helene.mathian@lde.fr
+     - Quentin.Bergamin@lde.fr
+     - pierre.woelffel@lde.fr
+     - celine.risch@lde.fr
+     - rachel.hoffmann@lde.fr
+     - mael.equilbey@lde.fr
+     - alexia.leon@lde.fr
+     - jean-philippe.lecreux@lde.fr
+     - romy.teixeira@lde.fr
+
+Département: 'Production' (10 utilisateur(s))
+   Utilisateurs :
+     - Antonin.OBERHOLTZ@lde.fr
+     - cedric.depaoli@lde.fr
+     - marine.bernauer@lde.fr
+     - olivier.roellinger@lde.fr
+     - lucien.lombardi@lde.fr
+     - faris.arab@lde.fr
+     - william.Fritsch@lde.fr
+     - maria.martel@lde.fr
+     - Cassandra.BIEVLIET@lde.fr
+     - alexis.uhlerich@lde.fr
+
+Département: 'Relation client' (1 utilisateur(s))
+   ATTENTION: SERA NORMALISÉ VERS: 'Relations Clients'
+   Utilisateurs :
+     - Marie-Claire.KRAU@lde.fr
+
+Département: 'Relation Clients' (7 utilisateur(s))
+   ATTENTION: SERA NORMALISÉ VERS: 'Relations Clients'
+   Utilisateurs :
+     - elodie.urban@lde.fr
+     - marie.klein@lde.fr
+     - sherazhad.berriche@lde.fr
+     - emmeline.barral@lde.fr
+     - Auriane.WAGEMANN@lde.fr
+     - Gaelle.preghnella@lde.fr
+     - romane.matrat@lde.fr
+
+Département: 'Relations Clients' (1 utilisateur(s))
+   Utilisateurs :
+     - axel.rinn@lde.fr
+
+Département: 'Ressources Humaines' (1 utilisateur(s))
+   Utilisateurs :
+     - Elisabeth.laux@lde.fr
+
+Département: 'Technique' (1 utilisateur(s))
+   Utilisateurs :
+     - pierre.schmitt@lde.fr
+
+
+=== RÉSUMÉ DES PROBLÈMES À CORRIGER ===
+
+ERREUR: 1 département(s) avec des EMAILS à corriger :
+   - 'Flora.Brouard@lde.fr' (1 utilisateur(s))
+
+ATTENTION: 3 département(s) avec des variantes d'orthographe :
+   - 'Chefferie de Projet' → 'Chef de Projet' (3 utilisateur(s))
+   - 'Relation client' → 'Relations Clients' (1 utilisateur(s))
+   - 'Relation Clients' → 'Relations Clients' (7 utilisateur(s))
